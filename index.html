@@ -1,0 +1,440 @@
+<html>
+<head>
+    <title>FPA Home Page</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            padding-top: 90px;
+        }
+        .panel-login {
+            border-color: #ccc;
+            -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+        }
+        .panel-login>.panel-heading {
+            color: #00415d;
+            background-color: #fff;
+            border-color: #fff;
+            text-align:center;
+        }
+        .panel-login>.panel-heading a{
+            text-decoration: none;
+            color: #666;
+            font-weight: bold;
+            font-size: 15px;
+            -webkit-transition: all 0.1s linear;
+            -moz-transition: all 0.1s linear;
+            transition: all 0.1s linear;
+        }
+        .panel-login>.panel-heading a.active{
+            color: #029f5b;
+            font-size: 18px;
+        }
+        .panel-login>.panel-heading hr{
+            margin-top: 10px;
+            margin-bottom: 0px;
+            clear: both;
+            border: 0;
+            height: 1px;
+            background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+            background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+            background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+            background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+        }
+        .panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+            height: 45px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            -webkit-transition: all 0.1s linear;
+            -moz-transition: all 0.1s linear;
+            transition: all 0.1s linear;
+        }
+        .panel-login input:hover,
+        .panel-login input:focus {
+            outline:none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            border-color: #ccc;
+        }
+        .btn-login {
+            background-color: #59B2E0;
+            outline: none;
+            color: #fff;
+            font-size: 14px;
+            height: auto;
+            font-weight: normal;
+            padding: 14px 0;
+            text-transform: uppercase;
+            border-color: #59B2E6;
+        }
+        .btn-login:hover,
+        .btn-login:focus {
+            color: #fff;
+            background-color: #53A3CD;
+            border-color: #53A3CD;
+        }
+        .forgot-password {
+            text-decoration: underline;
+            color: #888;
+        }
+        .forgot-password:hover,
+        .forgot-password:focus {
+            text-decoration: underline;
+            color: #666;
+        }
+
+        .btn-register {
+            background-color: #1CB94E;
+            outline: none;
+            color: #fff;
+            font-size: 14px;
+            height: auto;
+            font-weight: normal;
+            padding: 14px 0;
+            text-transform: uppercase;
+            border-color: #1CB94A;
+        }
+        .btn-register:hover,
+        .btn-register:focus {
+            color: #fff;
+            background-color: #1CA347;
+            border-color: #1CA347;
+        }
+        .heading{
+            font-family: 'Droid Serif', serif;
+            font-weight: 700;
+        }
+        .success-div{
+            text-align:center;
+        	margin-bottom:15px;
+            color: #3C763D;
+        }
+        .success-div ul{
+            list-style:none;
+        }
+        .error-div{
+        	text-align:center;
+        	margin-bottom:15px;
+            color:red ;
+        }
+        .error-div ul{
+        	list-style:none;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+</head>
+<body>
+<script type="text/javascript">
+  
+$( document ).ready( function() {
+    $( '#myModal' ).modal( 'toggle' );
+});
+</script>
+<header class="navbar-fixed-top">
+    <h1 class="heading" style="text-align: center">MVSR Engineering College</h1>
+    <h3 class="heading" style="text-align: center">ANNUAL  FACULTY  PERFORMANCE  APPRAISAL</h3>
+</header>
+
+    <div class="container" style="padding-top: 100px">
+        <div class="row">
+
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="#" class="active" id="login-form-link">Login</a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a href="#" id="register-form-link">Register</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="login-form" action="login.php" autocomplete="off" method="POST" role="form" style="display: block;">
+                                    <div class="form-group">
+                                        <input type="email" name="username" id="username" tabindex="1" class="form-control" placeholder="Email Address" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                        <label for="remember"> Remember Me</label>
+                                    </div>
+                                    <div class="error-div"><ul></ul></div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="text-center">
+                                                    <a href="" tabindex="5" id="recoverPassword" class="forgot-password">Forgot Password?</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div>
+                                <form id="register-form" action="" method="post" autocomplete="off" role="form" style="display: none;">
+
+                                    <div class="form-group">
+                                        <input type="text" name="email" id="email" style="width: 60%;display: inline;border-right-color: transparent;border-radius: 0px;" class="form-control" placeholder="Email Address" required>
+                                        <button class="btn btn-info" style="display: inline;height:45px;margin-top: -3px;margin-left: -6px;border-left-color: transparent;border-radius: 0px;"><span class="emailIDCLG" style="font-weight: 700;font-size: large" >@mvsrec.edu.in</span></button>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="fullName" id="fullName"  class="form-control" placeholder="Full Name" required>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <select name="designation" id="designation" class="form-control" placeholder="Designation" required="required" >
+                                                                    <option value="">Select Designation</option>
+                                                                    <option value="Professor">Professor</option>
+                                                                    <option value="Associate Professor">Associate Professor</option>
+                                                                    <option value="Assistant Professor">Assistant Professor</option>
+                                                                   
+
+                                                                </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select name="dept" id="dept" class="form-control" required="required">
+                                                                        <option value="">Select Department</option>
+                                                                        <option value="IT">IT</option>
+                                                                        <option value="CSE">CSE</option>
+                                                                        <option value="ECE">ECE</option>
+                                                                        <option value="MECH">MECH</option>
+                                                                        <option value="AUTO">Auto Mobile</option>
+                                                                        <option value="CIVIL">Civil</option>
+                                                                        <option value="EEE">EEE</option>
+                                                                        <option value="MBA">MBA</option>
+                                                                        <option value="MCA">MCA</option>
+                                                                        <option value="SH">SH</option>
+                                                                     </select> 
+                                    </div>
+                                    	<div id="updatesuccess" class="alert alert-success" style="display:none">
+                			    			<p class="menuitem">Registration Successful.<p>
+                			    		</div>
+                			    		<div id="updatefail" class="alert alert-danger" style="display:none">
+                			    			<p class="menuitem">Registration Failed. Already account with same Email ID.<p>
+                			    		</div>
+                                        <div id="updateerror" class="alert alert-danger" style="display:none">
+                			    			<p class="menuitem">Registration Failed.Try Again.<p>
+                			    		</div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                                
+                                </div>
+
+                                <form id="recover-form" action="" method="post" role="form" autocomplete="off" style="display: none">
+                                    <div class="text-center"><h2><b>Recover Account</b></h2></div>
+                                    <div class="form-group">
+                                        <input type="text" name="email" id="recoverEmail" tabindex="1" style="width: 60%;display: inline;border-right-color: transparent;border-radius: 0px;" class="form-control" placeholder="Email Address" required>
+                                        <input type="button" class="btn btn-info" value="@mvsrec.edu.in" style="display: inline;height: 45px;margin-top: -3px;margin-left: -6px;font-family: 'Roboto', sans-serif;border-left-color: transparent;border-radius: 0px;font-weight: 700;font-size: large">
+<div id="updatesuccess1" class="alert alert-success" style="display:none">
+                			    			<p class="menuitem">Password Sent Your Email.<p>
+                			    		</div>
+                			    		<div id="updatefail1" class="alert alert-danger" style="display:none">
+                			    			<p class="menuitem">No account registered with this Email ID<p>
+                			    		</div>
+                                        <div id="updateerror1" class="alert alert-danger" style="display:none">
+                			    			<p class="menuitem"> Failed.Try Again.<p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" name="recover-submit" id="recover-submit" tabindex="4" class="form-control btn btn-success" value="Recover Account">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Information</h4>
+      </div>
+      <div class="modal-body">
+        <p><h4 class="heading">Faculty members of MVSR engineering college are requested to register before  logging in.</h4>
+<h5 class="heading">You are requested to register using official mail id only (ex: name_dept@mvsrec.edu.in). The user name and pwd to access FPA application will be forwarded to your official mail ID only.</h5>
+<h5 class="heading">If you do not have the official mail ID or forgot your pwd, please contact support@mvsrec.edu.in  with your name, designation and department, we will try to respond back with details within 24hrs.</h5></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+<script src="js/bootstrap.js"></script>
+<script>
+
+    $(function() {
+
+        $('#login-form-link').click(function(e) {
+            $("#login-form").delay(100).fadeIn(100);
+            $("#register-form").fadeOut(100);
+            $('#register-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+        $('#register-form-link').click(function(e) {
+            $("#register-form").delay(100).fadeIn(100);
+            $("#login-form").fadeOut(100);
+            $("#recover-form").fadeOut(100);
+            $('#login-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+        $('#recoverPassword').click(function(e) {
+            $("#recover-form").delay(100).fadeIn(100);
+            $("#login-form").fadeOut(100);
+            
+            e.preventDefault();
+        });
+
+    });
+
+</script>
+
+<script type="text/javascript">
+   // var form1 = document.getElementById('login-form');
+    var form2 = document.getElementById('register-form');
+   var form3 = document.getElementById('recover-form');
+   
+   
+    form2.onsubmit = function(event) {
+        event.preventDefault();
+        var email=$("#email").val();
+         if(email.indexOf('@') === -1)
+         {
+       email=''+email+"@mvsrec.edu.in";
+           }
+         else{
+        email = email.substring(0, email.indexOf('@'));
+        email=''+email+"@mvsrec.edu.in";
+         }
+        var error = "";
+   
+$.ajax({
+              dataType: "json",
+              url: "register.php",
+              data: {
+                email: email,
+                fullName: $("#fullName").val(),
+                designation: $("#designation").val(),
+                dept: $("#dept").val()
+                },
+              type: "POST",
+              success:function(data){
+                $("#register-form")[0].reset();
+                if(data.error == 0){
+                    $('#updatesuccess').css('display', 'none');
+                    $('#updateerror').css('display', 'none');
+			     $('#updatefail').css('display', 'block');
+
+				}
+                else if(data.error == 1) {
+                   
+                   $('#updateerror').css('display', 'none');
+			     $('#updatefail').css('display', 'none');
+                 $('#updatesuccess').css('display', 'block');
+                   var info='User Name and Password sent to Email.Your Email ID:'+email;
+                           $( "#updatesuccess" ).append(info);
+				}
+                else if(data.error == 2) {
+                    $('#updatesuccess').css('display', 'none');
+			     $('#updatefail').css('display', 'none');
+                 $('#updateerror').css('display', 'block');
+				}
+              },
+              error:function(data){
+                console.log(data);
+              }
+        
+  });
+    };
+form3.onsubmit = function(event) {
+        event.preventDefault();
+        var email=$("#recoverEmail").val();
+         if(email.indexOf('@') === -1)
+         {
+       email=''+email+"@mvsrec.edu.in";
+           }
+         else{
+        email = email.substring(0, email.indexOf('@'));
+        email=''+email+"@mvsrec.edu.in";
+         }
+        var error = "";
+   
+$.ajax({
+              dataType: "json",
+              url: "reset.php",
+              data: {
+                email1: email,
+                action:'reset'
+                },
+              type: "POST",
+              success:function(data){
+                $("#register-form")[0].reset();
+                if(data.error == 0){
+                    $('#updatesuccess1').css('display', 'none');
+                    $('#updateerror1').css('display', 'none');
+			     $('#updatefail1').css('display', 'block');
+                     
+                               
+				}
+                else if(data.error == 1) {
+                   
+                   $('#updateerror1').css('display', 'none');
+			     $('#updatefail1').css('display', 'none');
+                 $('#updatesuccess1').css('display', 'block');
+ var info='Password sent to Email.Your Email ID:'+email;
+                           $( "#updatesuccess1" ).append(info);
+				}
+                else if(data.error == 2) {
+                    $('#updatesuccess1').css('display', 'none');
+			     $('#updatefail1').css('display', 'none');
+                 $('#updateerror1').css('display', 'block');
+				}
+              },
+              error:function(data){
+                console.log(data);
+              }
+        
+  });
+    };
+</script>
+</html>
